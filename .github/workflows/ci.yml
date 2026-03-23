@@ -34,7 +34,7 @@ jobs:
     - name: Start Cloud SQL Proxy
       run: |
         cloud-sql-proxy quizgame-491018:us-west1:quizgame --port=3306 &
-        sleep 3
+        sleep 8
 
     - name: Run migrations
       env:
