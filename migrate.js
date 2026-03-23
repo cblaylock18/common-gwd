@@ -6,14 +6,13 @@ const db = await mysql.createConnection(
   process.env.DB_HOST === '127.0.0.1'
     ? {
       host: process.env.DB_HOST,
-      port: process.env.DB_PORT || 3306,
+      port: parseInt(process.env.DB_PORT || '3306'),
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      ssl: false
     }
     : {
-      socketPath: `/cloudsql/quizgame-491018:us-west1:quizgame`,
+      socketPath: `/tmp/cloudsql/quizgame-491018:us-west1:quizgame`,
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
