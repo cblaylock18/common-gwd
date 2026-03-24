@@ -2,7 +2,7 @@ import mysql from 'mysql2/promise';
 import fs from 'fs';
 import path from 'path';
 
-db = await mysql.createConnection(
+const db = await mysql.createConnection(
   process.env.DB_HOST
     ? {
       host: process.env.DB_HOST,
