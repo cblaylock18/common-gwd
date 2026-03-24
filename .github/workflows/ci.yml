@@ -21,7 +21,7 @@ jobs:
       run: npm ci
 
     - name: Authenticate to Google Cloud
-      uses: google-github-actions/auth@v2
+      uses: google-github-actions/auth@v4
       with:
         credentials_json: "${{ secrets.GCP_SA_KEY }}"
 
@@ -39,8 +39,8 @@ jobs:
 
     - name: Run migrations
       env:
-        DB_PORT: 3306
         DB_USER: ${{ secrets.DB_USER }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         DB_NAME: ${{ secrets.DB_NAME }}
+        DB_SOCKET_PATH: /tmp/cloudsql/quizgame-491018:us-west1:quizgame
       run: npm run migrate
