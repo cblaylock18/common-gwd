@@ -1,0 +1,13 @@
+CREATE TABLE accepted_answers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  question_id INT NOT NULL,
+  normalized_answer VARCHAR(255) NOT NULL,
+  UNIQUE KEY uq_accepted (question_id, normalized_answer)
+);
+
+CREATE TABLE rejected_answers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  question_id INT NOT NULL,
+  normalized_answer VARCHAR(255) NOT NULL,
+  UNIQUE KEY uq_rejected (question_id, normalized_answer)
+);
